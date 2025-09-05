@@ -1,0 +1,71 @@
+.contenedor_encabezado_perfil{
+    width: 90%;
+    height: fit-content;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #F2EBBF;
+    padding: 10px 0px;
+}
+
+.contenedor_encabezado_perfil > :nth-child(1){
+    width: 100%;
+    height: 20vh;
+    background-color: #8CBEB2;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border:solid 5px #5C4B51 ;
+}
+
+.contenedor_encabezado_perfil > :nth-child(1) > a > img{
+    cursor: pointer;
+}
+
+.contenedor_encabezado_perfil > :nth-child(1) > img:hover{
+    width: 110px;
+}
+
+.contenedor_encabezado_perfil > :nth-child(2){
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor_encabezado_perfil > :nth-child(2) > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenedor_encabezado_perfil > :nth-child(2) > div > img{
+    width: 100px;
+}
+
+.contenedor_encabezado_perfil > :nth-child(2) > div > div > h3{
+    font-size: 30px;
+    color: #5C4B51;
+}
+
+.contenedor_encabezado_perfil > :nth-child(2) > div > div > p{
+    font-size: 20px;
+    color: #5C4B51;
+}
+
+.contenedor_encabezado_perfil > :nth-child(2) > a > button{
+    font-size: 30px;
+    color: #FFFFB4;
+    padding: 10px 50px;
+    border-radius: 20px;
+    background-color: #F06060;
+    border: solid 5px #5C4B51;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_encabezado_perfil > :nth-child(2) > a > button:hover{
+    font-size: 34px;
+}

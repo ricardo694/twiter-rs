@@ -1,0 +1,86 @@
+.contenedor_formu_IS{
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    padding: 20px;
+    background-color: #F2EBBF;
+    border-radius: 20px;
+    border: solid 7px #5C4B51;
+}
+
+.contenedor_formu_IS > :nth-child(1){
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.contenedor_formu_IS > :nth-child(1) > p{
+    width: 90%;
+    text-align: center;
+    background-color: #F06060;
+    color: #FFFFB4;
+    font-size: 30px;
+    border-radius: 20px;
+    padding: 20px;
+    border: solid 3px #5C4B51;
+}
+
+.contenedor_formu_IS > :nth-child(1) > form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contenedor_formu_IS > :nth-child(1) > form > input{
+    width: 70%;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    border: solid 3px #8CBEB2;
+    background-color: transparent;
+    outline: none;
+}
+
+.contenedor_formu_IS > :nth-child(1) > form > input:focus{
+    background-color: #FFFFB4;
+}
+
+.contenedor_formu_IS > :nth-child(1) > form  > button{
+    font-size: 20px;
+    color: #5C4B51;
+    padding: 10px 40px;
+    border-radius: 20px;
+    background-color: #8CBEB2;
+    border: solid 3px #5C4B51;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_formu_IS > :nth-child(1) > form > button:hover{
+    font-size: 22px;
+}
+
+.contenedor_formu_IS > :nth-child(1) > form > a > p{
+    color: #F06060;
+}
+
+.contenedor_formu_IS > :nth-child(2){
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: dashed 5px #5C4B51;
+}
+
+.contenedor_formu_IS > :nth-child(2) > img{
+    width: 70%;
+}

@@ -1,0 +1,28 @@
+.contenedor_encabezado_inicio{
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    background-color: #F2EBBF;
+    border-radius: 20px;
+    border: solid 7px #5C4B51;
+}
+
+.contenedor_encabezado_inicio > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor_encabezado_inicio > div > h1{
+    font-size: 70px;
+    color:#5C4B51;
+}
+
+.contenedor_encabezado_inicio > div > a > img{
+    width: 70px;
+}

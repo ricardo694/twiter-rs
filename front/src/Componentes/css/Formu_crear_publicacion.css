@@ -1,0 +1,83 @@
+.contenedor_formu_crear_publicacion{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: #F2EBBF;
+    border-radius: 20px;
+    border: solid 7px #5C4B51;
+}
+
+.contenedor_formu_crear_publicacion > form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenedor_formu_crear_publicacion > form > :nth-child(1){
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 20px 0px;
+    border-bottom: dashed 4px #5C4B51;
+}
+
+.contenedor_formu_crear_publicacion > form > :nth-child(1) > h1{
+    font-size: 35px;
+    color: #5C4B51;
+}
+
+.contenedor_formu_crear_publicacion > form > :nth-child(1) > button{
+    font-size: 30px;
+    color: #5C4B51;
+    padding: 10px 50px;
+    border-radius: 20px;
+    background-color: #8CBEB2;
+    border: solid 5px #5C4B51;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_formu_crear_publicacion > form > :nth-child(2){
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenedor_formu_crear_publicacion > form > :nth-child(2) > input{
+    width: 100%;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: transparent;
+    border: solid 4px #5C4B51;
+    outline: none;
+}
+
+.contenedor_formu_crear_publicacion > form > :nth-child(2) > input:focus{
+    background-color: #FFFFB4;
+}
+
+.contenedor_formu_crear_publicacion > form > :nth-child(2) > textarea{
+    height: 25vh;
+    width: 100%;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: transparent;
+    border: solid 4px #5C4B51;
+    outline: none;
+}
+
+.contenedor_formu_crear_publicacion > form > :nth-child(2) > textarea:focus{
+    background-color: #FFFFB4;
+}
