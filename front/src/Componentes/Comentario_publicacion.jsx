@@ -1,6 +1,5 @@
-import React from 'react';
-
-import '../Componentes/css/Publicacion.css';
+import React from "react";
+import '../Componentes/css/Comentario_publicacion.css'
 
 const Comentario_publicacion = ({
     fotoPerfil, 
@@ -8,13 +7,13 @@ const Comentario_publicacion = ({
     fechaCreacion, 
     contenido}) => {
     return(
-            <div className="contenedor_publicacion">
-
-
+            <div className="contenedor_comentario">
                 <div>
-                    <img src={fotoPerfil } alt="perfil" />
-                    <h3>{nombre}</h3>
-                    <h5>{fechaCreacion}</h5>
+                    <div>
+                        <img src={fotoPerfil } alt="perfil" />
+                        <h3>{nombre}</h3>
+                    </div>
+                    <p>{fechaCreacion}</p>
                 </div>
     
                 <div>

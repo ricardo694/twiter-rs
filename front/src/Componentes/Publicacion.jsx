@@ -1,7 +1,7 @@
 import React from "react";
 import '../Componentes/css/Publicacion.css'
 import like from "../Componentes/img/like.svg"
-import dislike from "../Componentes/img/dislike.png"
+import dislike from "../Componentes/img/dislike.svg"
 import Comentario_publicacion from "./Comentario_publicacion";
 import Crear_comentario from "./Crear_comentario";
 
@@ -35,16 +35,20 @@ const Publicacion = ({
         <div className="contenedor_publicacion">
             {/*ENCABEZADO DE LA PUBLICACION*/}
             <div>
-                <img src={fotoPerfil } alt="perfil" />
-                <h3>{nombre}</h3>
-                <h5>{fecha}</h5>
+                <div>
+                    <img src={fotoPerfil } alt="perfil" />
+                    <h3>{nombre}</h3>
+                </div>
+                <p>{fecha}</p>
             </div>
 
             {/*CUERPO DE LA PUBLICACION*/}
             <div>
                 <h4>{titulo}</h4>
                 <p>{contenido}</p>
-                <img src={imagen} alt="post" />
+                {imagen && imagen.trim() !== "" && (
+                    <img src={imagen} alt="" />
+                )}
             </div>
             {/*FOOTER DE PUBLICACION*/}
             <div>
@@ -60,12 +64,10 @@ const Publicacion = ({
 
                 {/*IMAGENS PARA DAR LIKE O DISLIKE*/}
                 <div>
-                    <img src={like} alt="like" onClick={onLike} 
-                    style={{ filter: userReaction === 'like' ? 'invert(39%) sepia(96%) saturate(437%) hue-rotate(88deg) brightness(93%) contrast(92%)' : 'none' }}/>
+                    <img src={like} alt="like" onClick={onLike}/>
                     {likes}
 
-                    <img src={dislike} alt="like" onClick={onDislike}
-                    style={{ filter: userReaction === 'dislike' ? 'invert(39%) sepia(96%) saturate(437%) hue-rotate(358deg) brightness(93%) contrast(92%)' : 'none' }} />
+                    <img src={dislike} alt="like" onClick={onDislike}/>
                     {dislikes}
                 </div>
 
@@ -80,7 +82,7 @@ const Publicacion = ({
             )}
             {/*RENDERIZAR COMPONENTE PARA VER COMENTARIOS*/}
             {mostrarComentarios && (
-            <div>
+            <div className="caja_comentario">
                 {comentarios.length > 0 ? (
                     comentarios.map((c) => (
                     <Comentario_publicacion

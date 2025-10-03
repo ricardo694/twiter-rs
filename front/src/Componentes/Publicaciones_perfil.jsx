@@ -6,7 +6,7 @@ import Crear_comentario from "./Crear_comentario";
 import Comentario_publicacion from "./Comentario_publicacion";
 //IMAGENES
 import like from "../Componentes/img/like.svg";
-import dislike from "../Componentes/img/dislike.png";
+import dislike from "../Componentes/img/dislike.svg";
 
 
 const Publicaciones_perfil = ({
@@ -47,8 +47,10 @@ const Publicaciones_perfil = ({
         <div className="contenedor_publicacion_perfil">
             {/*ENCABEAZADO DE PUBLICACION*/}
             <div>
-                <img src={fotoPerfil} alt="" />
-                <h3>{nombre}</h3>
+                <div>
+                    <img src={fotoPerfil} alt="" />
+                    <h3>{nombre}</h3>
+                </div>
                 <h5>{fecha}</h5>
             </div>
 
@@ -83,7 +85,9 @@ const Publicaciones_perfil = ({
                 {/*CUERPO DE LA PUBLICACION*/}
                     <h4>{titulo}</h4>
                     <p>{contenido}</p>
-                    <img src={imagen} alt="post" />
+                    {imagen && imagen.trim() !== "" && (
+                        <img src={imagen} alt="" />
+                    )}
                 </>
                 )}
             </div>
@@ -102,13 +106,11 @@ const Publicaciones_perfil = ({
 
                 <div>
                     {/*IMAGENES PARA REACCIONAR*/}
-                    <img src={like} alt="like" onClick={onLike} 
-                    style={{ filter: userReaction === 'like' ? 'invert(39%) sepia(96%) saturate(437%) hue-rotate(88deg) brightness(93%) contrast(92%)' : 'none' }}/>
+                    <img src={like} alt="like" onClick={onLike} />
                     
                     {likes}
 
-                    <img src={dislike} alt="like" onClick={onDislike}
-                    style={{ filter: userReaction === 'dislike' ? 'invert(39%) sepia(96%) saturate(437%) hue-rotate(358deg) brightness(93%) contrast(92%)' : 'none' }} />
+                    <img src={dislike} alt="like" onClick={onDislike}/>
                     {dislikes}
                     
                 </div>
@@ -128,7 +130,7 @@ const Publicaciones_perfil = ({
             )}
             {/*RENDERIZAR COMPONENTE PARA VER PUBLICACIONES*/}
             {mostrarComentarios && (
-            <div>
+            <div className="caja_comentario">
                 {comentarios.length > 0 ? (
                     comentarios.map((c) => (
                     <Comentario_publicacion

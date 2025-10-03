@@ -53,7 +53,7 @@
     background-color: #FFFFB4;
 }
 
-.contenedor_formu_IS > :nth-child(1) > form  > button{
+.contenedor_formu_IS > :nth-child(1) > form > button{
     font-size: 20px;
     color: #5C4B51;
     padding: 10px 40px;
@@ -63,10 +63,6 @@
     margin-top: 20px;
     cursor: pointer;
     transition: .3s;
-}
-
-.contenedor_formu_IS > :nth-child(1) > form > button:hover{
-    font-size: 22px;
 }
 
 .contenedor_formu_IS > :nth-child(1) > form > a > p{
@@ -79,8 +75,11 @@
     align-items: center;
     justify-content: center;
     border-left: dashed 5px #5C4B51;
+    /* width: 220px;   un poco más que el ancho de .card para que quepa bien */
+    /* height: 220px;  igual altura */
+    position: relative;  /* para posicionamiento relativo */
+    overflow: hidden;    /* evita que el contenido "se salga" del contenedor */
+
 }
 
-.contenedor_formu_IS > :nth-child(2) > img{
-    width: 70%;
-}
+

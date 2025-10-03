@@ -14,33 +14,61 @@
 .contenedor_publicacion > :nth-child(1){
     width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
     padding: 0px 0px 10px 0px;
     border-bottom:dashed 4px #5C4B51;
 }
 
-.contenedor_publicacion > :nth-child(1) > img{
-    width: 70px;
+.contenedor_publicacion > :nth-child(1) > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-.contenedor_publicacion > :nth-child(1) > h3{
+.contenedor_publicacion > :nth-child(1) > div > img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.contenedor_publicacion > :nth-child(1)  > div > h3{
     color: #5C4B51;
     font-size: 30px;
+}
+
+.contenedor_publicacion > :nth-child(1) > p{
+    color: #5C4B51;
+    font-size: 15px;
 }
 
 .contenedor_publicacion > :nth-child(2){
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: start;
     padding: 30px 0px;
     border-bottom:dashed 4px #5C4B51;
+}
+
+.contenedor_publicacion > :nth-child(2) > h4{
+    font-size: 30px;
+    color: #5C4B51;
+    padding: 0px 0px 20px 0px;
 }
 
 .contenedor_publicacion > :nth-child(2) > p{
     font-size: 25px;
     color: #5C4B51;
+}
+
+.contenedor_publicacion > :nth-child(2) > img{
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
 .contenedor_publicacion > :nth-child(3){
@@ -51,65 +79,47 @@
     padding: 20px 0px;
 }
 
-.contenedor_publicacion > :nth-child(3) > button{
-    font-size: 25px;
-    color: #F06060;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-}
-
 .contenedor_publicacion > :nth-child(3) > div{
     display: flex;
     gap: 30px;
 }
 
+.contenedor_publicacion > :nth-child(3) > :nth-child(1){
+    font-size: 25px;
+    color: #F06060;
+    cursor: pointer;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.contenedor_publicacion > :nth-child(3) > :nth-child(2){
+    font-size: 25px;
+    color: #F06060;
+    cursor: pointer;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
 .contenedor_publicacion > :nth-child(3) > div > :nth-child(1){
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
 .contenedor_publicacion > :nth-child(3) > div > :nth-child(2){
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    transform: scaleX(-1) scaleY(-1);
     cursor: pointer;
 }
 
-.form-comentario > :nth-child(1){
+.caja_comentario{
+    width: 90%;
     display: flex;
-    gap: 9px;
-    padding: 8px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-}
-
-.form-comentario > :nth-child(1)>input{
-    width: 70%;
-    font-size: 17px;
-    padding: 8px;
-    border-radius: 20px;
-    border: solid 3px #F06060;
-    background-color: transparent;
-    outline: none;
-}
-
-.form-comentario > :nth-child(1) > button{
-    font-size: 20px;
-    color: #5C4B51;
-    padding: 5px;
-    border-radius: 20px;
-    background-color: #8CBEB2;
-    border: solid 3px #5C4B51;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.form-comentario > :nth-child(1) > input:focus{
-    background-color: #FFFFB4;
-}
-
-.form-comentario > :nth-child(1) button:hover{
-    font-size: 22px;
+    gap: 20px;
 }

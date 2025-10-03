@@ -1,0 +1,40 @@
+.contenedor_crear_comentario{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 10px 0px;
+}
+
+.contenedor_crear_comentario > form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenedor_crear_comentario > form > input{
+    width: 90%;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 20px;
+    border: solid 3px #5C4B51;
+    outline: none;
+    background-color: transparent;
+}
+
+.contenedor_crear_comentario > form > input:focus{
+    background-color: #FFFFB4;
+}
+
+.contenedor_crear_comentario > form > button{
+    font-size: 25px;
+    color: #5C4B51;
+    padding: 8px 40px;
+    border-radius: 20px;
+    background-color: #F3B562;
+    border: solid 5px #5C4B51;
+    cursor: pointer;
+}

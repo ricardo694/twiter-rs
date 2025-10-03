@@ -51,7 +51,7 @@ const Registro = () => {
             console.log(data);
 
             if (response.ok) {
-                alert("Usuario registrado ");
+                alert("¡Registro Completado!");
                 setFormData({ nombre: "", correo: "",  contrasena: "", fotoPerfil: "" });
                 navigate('/Inicio_Sesion')
                 

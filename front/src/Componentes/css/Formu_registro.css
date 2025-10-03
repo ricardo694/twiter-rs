@@ -9,6 +9,7 @@
     background-color: #F2EBBF;
     border-radius: 20px;
     border: solid 7px #5C4B51;
+    
 }
 
 .contenedor_formu_registro > :nth-child(2){
@@ -83,5 +84,4 @@
 
 .contenedor_formu_registro > :nth-child(1) > img{
     width: 70%;
-    transform:scaleX(-1);
 }

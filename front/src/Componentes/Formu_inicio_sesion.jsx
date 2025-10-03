@@ -1,6 +1,7 @@
 import React from "react";
+import { Typewriter } from 'react-simple-typewriter'
 import '../Componentes/css/Formu_inicio_sesion.css'
-import logo from "../Componentes/img/logo.svg"
+import Imagen_logo from '../Componentes/Imagen_logo';
 import { Link } from "react-router-dom";
 
 const Formu_inicio_sesion = ({nombre, contrasena, onChange, onSubmit}) => {
@@ -8,7 +9,17 @@ const Formu_inicio_sesion = ({nombre, contrasena, onChange, onSubmit}) => {
 
         <div className="contenedor_formu_IS">
             <div>
-                <p>Inicio de Sesion</p>
+                <p>
+                    <Typewriter
+                    words={['Inicio','Sesión']}
+                    loop={Infinity}
+                    cursor
+                    cursorStyle='|'
+                    typeSpeed={30}
+                    deleteSpeed={50}
+                    delaySpeed={2000}
+                    />
+                </p>
 
                 <form onSubmit={onSubmit}>
                     <input type="text" placeholder="Nombre" name="nombre" value={nombre} onChange={onChange} required/>
@@ -21,7 +32,7 @@ const Formu_inicio_sesion = ({nombre, contrasena, onChange, onSubmit}) => {
             </div>
 
             <div>
-                <img src={logo}/>
+                <Imagen_logo/>
             </div>
         </div>
         

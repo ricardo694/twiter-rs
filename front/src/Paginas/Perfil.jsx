@@ -3,8 +3,12 @@ import Encabezado_perfil from "../Componentes/Encabezado_perfil";
 import '../Paginas/css/Perfil.css'
 import Formu_crear_publicacion from "../Componentes/Formu_crear_publicacion";
 import Publicaciones_perfil from "../Componentes/Publicaciones_perfil";
+import { useNavigate } from "react-router-dom";
 
 const Perfil = () => {
+
+    const navigate = useNavigate();
+
     //========ESTADOS NECESARIOS===========
     const [formData, setFormData] = useState({ titulo:"", imagen:"", contenido:"" });
     const [usuario, setUsuario] = useState(null);
@@ -42,12 +46,46 @@ const Perfil = () => {
     }
 };
 
+//---- Cerrar Sesion ----
+const handleCerrarSesion = async () => {
+    if(window.confirm('¿Seguro que quieres cerrar tu sesion?')){
+        try{
+            const res = await fetch('http://localhost:3001/cerrar_sesion', {
+                method:'POST',
+                credentials:'include'
+            })
+
+            const result = await res.json()
+
+            if(result.success){
+                alert('¡Acabas de Cerrar tu Sesion')
+
+                localStorage.removeItem("usuario")
+                navigate('/Inicio_Sesion')
+
+                window.onpageshow = function (evt){
+                    if(evt.persisted){
+                        window.location.reload()
+                    }
+                }
+            }
+            else{
+                alert('No se pudo cerrar sesion')
+            }
+        }
+        catch(error){
+            console.error('Error: ' + error.message)
+        }
+    }
+}
+
     const handleSave = async (postId) => {
     try {
         const res = await fetch(`http://localhost:3001/posts/${postId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(editForm),
+            credentials: "include"
         });
         if (!res.ok) throw new Error("Error al actualizar la publicación");
 
@@ -59,6 +97,8 @@ const Perfil = () => {
                     : p
             )
         );
+
+        alert('¡Publicacion actualizada correactamente!')
 
             setEditingPostId(null);
         } catch (err) {
@@ -77,7 +117,9 @@ const Perfil = () => {
     ------------------------- */
     const fetchComentarios = async (postId) => {
         try {
-            const res = await fetch(`http://localhost:3001/comentarios/${postId}`);
+            const res = await fetch(`http://localhost:3001/comentarios/${postId}`,{
+                credentials: "include"
+            });
             if (!res.ok) throw new Error("Error al obtener comentarios");
             const data = await res.json();
 
@@ -146,11 +188,14 @@ const Perfil = () => {
                     contenido,
                     usuarioId: usuario?.Id_usuario,
                     postId
-                })
+                }),
+                credentials: "include"
             });
 
             if (response.ok) {
                 const nuevoComentario = await response.json();
+
+                alert('¡Hiciste un comentario!')
 
                 setPosts(prev =>
                     prev.map(p =>
@@ -176,7 +221,9 @@ const Perfil = () => {
     //================== Cargar posts del usuario y sus reacciones====================
     const fetchUserPosts = async (usuarioActual) => {
         try {
-            const res = await fetch(`http://localhost:3001/posts/${usuarioActual.Id_usuario}`);
+            const res = await fetch(`http://localhost:3001/posts/${usuarioActual.Id_usuario}`, {
+                credentials: "include"
+            });
             if (!res.ok) throw new Error("Error al obtener posts");
             const data = await res.json();
             setUserPosts(data);
@@ -185,7 +232,9 @@ const Perfil = () => {
             const reaccionesData = {};
             await Promise.all(
                 data.map(async (post) => {
-                    const resR = await fetch(`http://localhost:3001/reacciones/${post.Id_post}`);
+                    const resR = await fetch(`http://localhost:3001/reacciones/${post.Id_post}`, {
+                        credentials: "include"
+                    });
                     if (!resR.ok) throw new Error(`Error al obtener reacciones del post ${post.Id_post}`);
                     const rData = await resR.json();
                     let likes = 0, dislikes = 0, userReaction = null;
@@ -218,7 +267,8 @@ const Perfil = () => {
             await fetch('http://localhost:3001/reacciones', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ postId, usuarioId: usuario?.Id_usuario, tipo })
+                body: JSON.stringify({ postId, usuarioId: usuario?.Id_usuario, tipo }),
+                credentials: "include"
             });
 
             setReacciones(prev => {
@@ -252,7 +302,10 @@ const Perfil = () => {
         if (!window.confirm("¿Seguro que quieres eliminar esta publicación?")) return;
 
         try {
-            const res = await fetch(`http://localhost:3001/posts/${postId}`, { method: "DELETE" });
+            const res = await fetch(`http://localhost:3001/posts/${postId}`, { 
+                method: "DELETE",
+                credentials: "include"
+            });
             if (res.ok) setUserPosts(userPosts.filter(post => post.Id_post !== postId));
         } catch (err) {
             console.error(err);
@@ -272,9 +325,11 @@ const Perfil = () => {
                     Contenido: formData.contenido,
                     UsuarioId_usuario: usuario.Id_usuario
                 }),
+                credentials: "include"
             });
             if (res.ok) {
                 setFormData({ titulo: "", imagen: "", contenido: "" });
+                alert('¡Publicaste algo!')
                 await fetchUserPosts(usuario); // Refrescar posts y reacciones
             }
         } catch (err) {
@@ -290,6 +345,7 @@ const Perfil = () => {
                     fotoPerfil={usuario?.Foto_perfil}
                     nombre={usuario?.Nombre}
                     correo={usuario?.Correo}
+                    handleCerrarSesion = {handleCerrarSesion}
                 />
                 <Formu_crear_publicacion
                     titulo={formData.titulo}

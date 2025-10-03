@@ -8,7 +8,8 @@ const Encabezado_perfil = ({
     //PROPS DE ENCABEZADO DE PUBLICACION
     fotoPerfil, 
     nombre, 
-    correo}) => {
+    correo,
+    handleCerrarSesion}) => {
     return(
         <div className="contenedor_encabezado_perfil"> 
             <div>
@@ -24,7 +25,7 @@ const Encabezado_perfil = ({
                     </div>
                 </div>
 
-                <Link to={'/Inicio_Sesion'}><button>Salir</button></Link>
+                <button onClick={handleCerrarSesion}>Salir</button>
             </div>
         </div>
     )

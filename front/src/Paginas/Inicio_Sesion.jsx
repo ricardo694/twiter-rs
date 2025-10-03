@@ -48,7 +48,7 @@ const Inicio_Sesion = () => {
 
             if (response.ok) {
                 localStorage.setItem("usuario", JSON.stringify(data.usuario));
-                alert("Inicio de sesión exitoso ");
+                alert("¡Bienvenido!");
                 navigate("/Inicio");
             } else {
                 alert(data.error || "Error en las credenciales ");

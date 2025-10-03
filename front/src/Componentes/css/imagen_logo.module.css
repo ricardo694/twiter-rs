@@ -1,0 +1,44 @@
+.card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: transparent;
+  border-radius: 5px;
+
+  transition: box-shadow 0.5s, opacity 0.5s;
+  will-change: transform;
+  cursor: grab;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.card:hover {
+  box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+}
+
+.card > div {
+  will-change: transform;
+  height: 100%;
+  margin: 0;
+}
+
+.card > div > * {
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  margin: 0;
+}
+.text{
+    font-weight: 600;
+    will-change: opacity;
+    font-size: 70px;
+    color:#5C4B51;
+    cursor: pointer;
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

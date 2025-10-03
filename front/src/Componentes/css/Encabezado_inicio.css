@@ -19,10 +19,12 @@
 }
 
 .contenedor_encabezado_inicio > div > h1{
-    font-size: 70px;
-    color:#5C4B51;
+
 }
 
 .contenedor_encabezado_inicio > div > a > img{
-    width: 70px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
 }

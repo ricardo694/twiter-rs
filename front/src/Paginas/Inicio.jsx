@@ -19,7 +19,9 @@ const Inicio = () => {
     /*=======================FUNCIONES DE COMENTARIOS==========================*/
     const fetchComentarios = async (postId) => {
         try {
-            const res = await fetch(`http://localhost:3001/comentarios/${postId}`);
+            const res = await fetch(`http://localhost:3001/comentarios/${postId}`, {
+                credentials: "include"
+            });
             if (!res.ok) throw new Error("Error al obtener comentarios");
             const data = await res.json();
 
@@ -85,11 +87,14 @@ const Inicio = () => {
                     contenido,
                     usuarioId: usuario?.Id_usuario,
                     postId
-                })
+                }),
+                credentials: "include"
             });
 
             if (response.ok) {
                 const nuevoComentario = await response.json();
+
+                alert('¡Hiciste un comentario!')
 
                 setPosts(prev =>
                     prev.map(p =>
@@ -120,7 +125,9 @@ const Inicio = () => {
     -----------------------*/
     const fetchPosts = async (usuarioActual) => {
     try {
-        const res = await fetch("http://localhost:3001/posts");
+        const res = await fetch("http://localhost:3001/posts", {
+            credentials: "include"
+        });
         if (!res.ok) throw new Error("Error al obtener posts");
         const data = await res.json();
         setPosts(data);
@@ -131,7 +138,9 @@ const Inicio = () => {
         const reaccionesData = {};
         await Promise.all(
             data.map(async (post) => {
-                const resR = await fetch(`http://localhost:3001/reacciones/${post.Id_post}`);
+                const resR = await fetch(`http://localhost:3001/reacciones/${post.Id_post}`,{
+                    credentials: "include"
+                });
                 if (!resR.ok) throw new Error(`Error al obtener reacciones del post ${post.Id_post}`);
                 const rData = await resR.json();
                 let likes = 0, dislikes = 0, userReaction = null;
@@ -167,7 +176,8 @@ const Inicio = () => {
             await fetch('http://localhost:3001/reacciones', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ postId, usuarioId: usuario?.Id_usuario, tipo })
+                body: JSON.stringify({ postId, usuarioId: usuario?.Id_usuario, tipo }),
+                credentials: "include"
             });
 
             setReacciones(prev => {
@@ -238,6 +248,3 @@ const Inicio = () => {
 }
 
 export default Inicio
-
-
-
